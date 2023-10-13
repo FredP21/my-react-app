@@ -1,5 +1,13 @@
+import PropTypes from "prop-types"
+
 const PokemonCard = ({pokemon}) => {
 
+    PokemonCard.propTypes = {
+        pokemon: PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            imgSrc: PropTypes.string}).isRequired
+        }
+    
     return ( 
         <figure>
                 { pokemon.imgSrc ? 
