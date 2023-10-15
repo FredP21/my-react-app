@@ -1,9 +1,11 @@
 import PropTypes from "prop-types"
 
-const NavBar = ({funct, array}) => {
-    NavBar.propTypes = {
-        funct: PropTypes.func,
-        array : PropTypes.array.isRequired}
+const NavBar = ({pok, funct, array}) => {
+
+
+        if (pok.name === "pikachu") {
+            alert("pika pikachu !!")
+        }
 
     
 
@@ -12,9 +14,13 @@ const NavBar = ({funct, array}) => {
       <>
     {array.map((article) => <button key={article.id} onClick={() => funct(article.id)}>
         {article.name}
-    </button>)}
+        </button>)}
       </>
     );
 
     }
+    NavBar.propTypes = {
+        pok: PropTypes.number.isRequired,
+        funct: PropTypes.func.isRequired,
+        array : PropTypes.array.isRequired}
 export default NavBar;
