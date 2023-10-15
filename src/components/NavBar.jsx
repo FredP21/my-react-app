@@ -1,21 +1,20 @@
 import PropTypes from "prop-types"
 
-const NavBar = ({precedentPok, suivantPok, pokemonIndex, pokemonList}) => {
+const NavBar = ({funct, array}) => {
     NavBar.propTypes = {
-        precedentPok : PropTypes.func.isRequired,
-        suivantPok : PropTypes.func.isRequired,
-        pokemonIndex : PropTypes.number.isRequired,
-        pokemonList : PropTypes.array.isRequired
+        funct: PropTypes.func,
+        array : PropTypes.array.isRequired}
 
-    }
+    
 
 
     return (
       <>
-        <button onClick={precedentPok} disabled={pokemonIndex === 0}>Précédent</button>
-    <button onClick={suivantPok} disabled={pokemonIndex === (pokemonList.length - 1)}>Suivant</button>
+    {array.map((article) => <button key={article.id} onClick={() => funct(article.id)}>
+        {article.name}
+    </button>)}
       </>
     );
-};
 
+    }
 export default NavBar;
